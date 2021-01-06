@@ -93,7 +93,7 @@ namespace PgRoutiner
                         }
                         if (!Models.Contains(result))
                         {
-                            if (!Settings.Value.UseRecordsForModels)
+                            if (!Settings.Value.UseRecords)
                             {
                                 OpenClass(_modelBuilder, result);
                                 foreach (var rec in _returns.Record.OrderBy(r => r.Ordinal))
@@ -381,7 +381,7 @@ namespace {ns}
 
         private string GetType(PgBaseType pgType, string description)
         {
-            if (Settings.TypeMapping.TryGetValue(pgType.Type, out var result))
+            if (Settings.DefaultTypeMapping.TryGetValue(pgType.Type, out var result))
             {
                 if (pgType.Array)
                 {

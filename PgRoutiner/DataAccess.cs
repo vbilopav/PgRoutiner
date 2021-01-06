@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Newtonsoft.Json;
-using Norm.Extensions;
+using Norm;
 using Npgsql;
 
 namespace PgRoutiner
@@ -37,7 +37,7 @@ namespace PgRoutiner
         public string[] RoutineType { get; set; }
     }
 
-    public static class DataAccess
+    public static partial class GetRoutinesInfo
     {
         public static IEnumerable<GetRoutinesResult> GetRoutines(this NpgsqlConnection connection, Settings settings) =>
             connection.Read<string, string, string, string[], string[], string[]>(@"
