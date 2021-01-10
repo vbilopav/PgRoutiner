@@ -8,17 +8,17 @@ namespace PgRoutiner
 {
     public class Module : CodeHelpers
     {
-        protected List<string> usings = new List<string> 
+        protected List<string> usings = new() 
         { 
             "System", "System.Linq", "System.Collections.Generic"
         };
-        protected string _namespace;
         protected List<object> items = new();
-        
+
+        public string Namespace { get; private set; }
 
         public Module(Settings settings) : base(settings)
         {
-            this._namespace = settings.Namespace;
+            Namespace = settings.Namespace;
         }
 
         public void AddUsing(params string[] usings)
@@ -30,7 +30,7 @@ namespace PgRoutiner
         {
             foreach(var ns in namespaces)
             {
-                this._namespace = string.Concat(this._namespace, ".", ns);
+                Namespace = string.Concat(this.Namespace, ".", ns);
             }
         }
 
@@ -51,7 +51,7 @@ namespace PgRoutiner
                 builder.AppendLine($"using {ns};");
             }
             builder.AppendLine();
-            builder.AppendLine($"namespace {_namespace}");
+            builder.AppendLine($"namespace {Namespace}");
             builder.AppendLine("{");
             builder.Append(string.Join(NL, items.Where(i => i != null)));
             builder.AppendLine("}");

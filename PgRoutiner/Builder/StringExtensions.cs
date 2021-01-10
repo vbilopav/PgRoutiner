@@ -21,6 +21,7 @@ namespace PgRoutiner
         public static string PathToNamespace(this string value) => string.Join(".", value
             .Replace("/", ".")
             .Replace("\\", ".")
+            .Replace(":", ".")
             .Split(".")
             .Select(v => v.ToUpperCamelCase()))
             .TrimStart('.');

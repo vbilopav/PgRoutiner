@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace PgRoutiner
 {
-    public record PgParameterInfo(int Ordinal, string Name, string Type, bool Array);
+    public record PgParameterInfo(int Ordinal, string Name, string Type, string DataType, bool Array);
 
     public record PgRoutineInfo(
         uint Oid, 
@@ -54,6 +54,7 @@ namespace PgRoutiner
                                 'ordinal', p.ordinal_position,
                                 'name', p.parameter_name,
                                 'type', regexp_replace(p.udt_name, '^[_]', ''),
+                                'dataType', p.data_type,
                                 'array', p.data_type = 'ARRAY'
                             ) 
                             order by 

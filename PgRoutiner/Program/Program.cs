@@ -24,14 +24,12 @@ namespace PgRoutiner
             if (config != null && success)
             {
                 WriteLine(ConsoleColor.Yellow, "", "Running files generation ... ", "");
-                //Run(config);
                 Builder.Run(config.GetConnectionString(Settings.Value.Connection));
             }
 #else
             if (config != null && success && ArgsInclude(args, "run"))
             {
                 WriteLine(ConsoleColor.Yellow, "", "Running files generation ... ", "");
-                //Run(config);
                 Builder.Run(config.GetConnectionString(Settings.Value.Connection));
             }
 #endif

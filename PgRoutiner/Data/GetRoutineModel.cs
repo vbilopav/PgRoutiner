@@ -7,7 +7,7 @@ using Npgsql;
 
 namespace PgRoutiner
 {
-    public record PgReturnModel(int Ordinal, string Name, string Type, bool Array, bool Nullable);
+    public record PgReturnModel(int Ordinal, string Name, string Type, string DataType, bool Array, bool Nullable);
 
     public static partial class DataAccess
     {
@@ -18,6 +18,7 @@ namespace PgRoutiner
                 p.ordinal_position as ordinal,
                 p.parameter_name as name,
                 regexp_replace(p.udt_name, '^[_]', '') as type,
+                p.data_type,
                 p.data_type = 'ARRAY' as array,
                 true as nullable
             from 
@@ -40,6 +41,7 @@ namespace PgRoutiner
                 c.ordinal_position as ordinal,
                 c.column_name as name, 
                 regexp_replace(c.udt_name, '^[_]', '') as type,
+                c.data_type,
                 c.data_type = 'ARRAY' as array,
                 c.is_nullable = 'YES' as nullable
 
