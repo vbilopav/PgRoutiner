@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PgRoutiner", "PgRoutiner\PgRoutiner.csproj", "{BCCC67BF-188D-4107-902A-5930CBDD8688}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PgRoutinerTests", "PgRoutinerTests\PgRoutinerTests.csproj", "{884A6287-CF9C-4281-9254-12F8975E3577}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PgRoutinerTests", "PgRoutinerTests\PgRoutinerTests.csproj", "{884A6287-CF9C-4281-9254-12F8975E3577}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3DE97662-9335-4526-B256-C70980C9CED8}"
+	ProjectSection(SolutionItems) = preProject
+		EXAMPLES.md = EXAMPLES.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

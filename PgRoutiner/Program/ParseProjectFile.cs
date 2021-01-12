@@ -105,7 +105,7 @@ namespace PgRoutiner
             }
             catch (Exception)
             {
-                DumpError($"Minimum version for Norm.net is 3.1.0 Please, update your reference.");
+                DumpError($"Minimum version for Norm.net is 3.1.2 Please, update your reference.");
                 return false;
             }
 
